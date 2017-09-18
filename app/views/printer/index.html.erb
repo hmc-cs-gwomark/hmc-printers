@@ -2,30 +2,30 @@
 <% @printers.each do |t| %>
 <div class="card cmn-t-underline">
 	<div class="card-block">
-		<h4 class="card-title mt-2 ml-3 mb-1.5" style="text-align:left;"><%=t.name%><button class="btn btn-outline-danger mr-3" data-toggle="collapse" href="#lacPrinter" style="float: right;">Report</button></h4>
-		<h6 class="card-subtitle ml-3 mb-2 text-success" style="font-weight:100;"><%=t.status%></h6>
+		<h4 class="card-title mt-2 ml-3 mb-1.5" style="text-align:left;"><%=t.name%><button class="btn btn-outline-danger mr-3" data-toggle="collapse" href=<%="#"+t.ids%> style="float: right;">Report</button></h4>
+		<h6 class="card-subtitle ml-3 mb-2 text-success" style="font-weight:100;"><% if t.status=="no" %>
+ <h6 class="card-subtitle ml-3 mb-2 text-danger" style="font-weight:100;"> Not Working</h6>
+<% else %>
+ <h6 class="card-subtitle ml-3 mb-2 text-success" style="font-weight:100;">Working</h6>
+<% end %>
 		<p class="card-text ml-3 mb-2"><%=t.issue%></p>
 	</div>
 </div>
 <div class="collapse w-75 mt-3 mx-auto" id=<%=t.ids%>>
-	<form>
+	<%=form_for :printer do |f|%>
 		<div class="form-group">
 			<label>Is the printer working?</label>
-			<select class="form-control">
-				<option>yes</option>
-				<option>no</option>
-			</select>
+			<%= f.select "status", raw("<option>yes</option><option>no</option>")%>
 		</div>
 		<div class="form-group">
 			<label>How is it broken?</label>
-			<select class="form-control">
-				<option>No paper</option>
-      			<option>Paper jam</option>
-      			<option>Bleep this blop, i'm printin somewhere else</option>
+			<%= f.select "issue", raw("<option>No paper</option><option>Paper jam</option><option>Bleep this blop, i'm printin somewhere else</option>")%>
 			</select>
 		</div>
-		<button type="submit" class="btn btn-primary">Submit</button>
-	</form>
+		<%= hidden_field_tag(:ids, t.ids) %>
+		<%= hidden_field_tag(:name, t.name) %>
+		 <%= f.submit "Submit", :class => "btn btn-primary" %>
+	<%end%>
 </div>
 <br>
 <% end %>
