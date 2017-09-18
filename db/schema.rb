@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170912234959) do
+ActiveRecord::Schema.define(version: 20170918031933) do
+
+  create_table "printers", force: :cascade do |t|
+    t.string "name"
+    t.string "ids"
+    t.string "status"
+    t.string "issue"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "statuses", force: :cascade do |t|
     t.string "printer"
