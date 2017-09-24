@@ -1,0 +1,44 @@
+<h1 class="printer-header">Printer Statuses</h1>
+<% @printers.each do |t| %>
+<div class="card cmn-t-underline">
+	<div class="card-block">
+		<h4 class="card-title mt-2 ml-3 mb-1.5" style="text-align:left;"><%=t.name%><button class="btn btn-outline-danger mr-3" data-toggle="collapse" href=<%="#"+t.ids%> style="float: right;">Report</button></h4>
+		<h6 class="card-subtitle ml-3 mb-2 text-success" style="font-weight:100;">
+		<% if t.status=="no" %>
+ 			<h6 class="card-subtitle ml-3 mb-2 text-danger" style="font-weight:100;"> Not Working</h6>
+ 			<p class="card-text ml-3 mb-2"><%=t.issue%></p>
+		<% else %>
+ 			<h6 class="card-subtitle ml-3 mb-2 text-success" style="font-weight:100;">Working</h6>
+		<% end %>
+	</div>
+</div>
+<div class="collapse w-75 mt-3 mx-auto" id=<%=t.ids%>>
+	<%=form_for :printer do |f|%>
+		<div class="form-group">
+			<label >Is the printer working?</label>
+			<%= f.select "status", options_for_select(["yes", "no"]), {}, {:id => t.id.to_s+"_selector"}%>
+		</div>
+		<div id="<%= t.id.to_s+"_hidden"%>" class="form-group hidden_field" >
+			<label>How is it broken?</label>
+			<%= f.select "issue", options_for_select(["No paper", "Paper jam", "Bleep this blop, i'm printin somewhere else"]) %>
+		</div>
+		<%= hidden_field_tag(:ids, t.ids) %>
+		<%= hidden_field_tag(:name, t.name) %>
+		 <%= f.submit "Submit", :class => "btn btn-primary" %>
+	<%end%>
+</div>
+<br>
+<% end %>
+<br>
+<script type="text/javascript">
+	$(document).ready(function(){
+		<% @printers.each do |t| %>
+	    $("#<%= t.id.to_s+"_selector"%>").change(function(){
+	    	$("#<%= t.id.to_s+"_hidden"%>").slideToggle('fast')     
+	    });  
+	    <% end %>      
+	});
+</script>
+<!-- id: => t.id.to_s+"_hidden"
+:id => t.id.to_s+"_selector",
+ -->

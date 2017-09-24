@@ -57,3 +57,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap', '~> 4.0.0.beta'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'jquery-rails'
+
+#admin interface
+gem 'activeadmin'
+
+# Plus integrations with:
+gem 'devise'
+gem 'cancan' # or cancancan
+gem 'draper'
+gem 'pundit'
