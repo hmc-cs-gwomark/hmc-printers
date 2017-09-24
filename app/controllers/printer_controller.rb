@@ -16,9 +16,14 @@ class PrinterController < ApplicationController
      end
   end
   
-  # def create
-  #   @printer = Printer.new(printer_params)
-  # end
+  def create
+    @printer = Printer.new(printer_params)
+    if @printer.save
+      redirect_to '/printers'
+    else
+      render 'index'
+    end
+  end
 
   private
     def printer_params
