@@ -1,4 +1,4 @@
-# hmc-printers
+# Printer-Statuses
 A website that crowd sources to determine whether printers on Harvey Mudd's campus are working or not
 
 ## Contributors 
@@ -14,7 +14,7 @@ Our MVP includes a webpage that displays a basic message about the each printer'
 ## Functionality
 The main functionality of Printer Statuses is the user’s ability to report whether a certain printer is working or not and why the printer is not working. Let’s walk through a simple process of creating a report: 
 
-First venture to the [/printers](http://whatever-domain-name/printers) route. Find which printer you want, in this case we’ll report about the LAC Printer, then click on it’s corresponding report button as shown in Fig.1
+First venture to the '/printers' route. Find which printer you want, in this case we’ll report about the LAC Printer, then click on it’s corresponding report button as shown in Fig.1
 
 ![image alt text](image_0.png)
 
@@ -30,9 +30,9 @@ If the printer is working we simply hit submit, otherwise click the dropdown and
 
 After clicking submit, the page should refresh and you should see your new report under the printer you just submitted the form for.  
 
-Users can also check out previous statuses for all printers at the /history route. 
+Users can also check out previous statuses for all printers at the '/history' route. 
 
-Our website also contains some admin functionality. In particular admins can add new printers to add reports for. Admins can also delete printers along with all their statuses with the click of a button. Simply venture to the /admin/printers route, enter the admin credentials, and you’ll see the following: 
+Our website also contains some admin functionality. In particular admins can add new printers to add reports for. Admins can also delete printers along with all their statuses with the click of a button. Simply venture to the '/admin/printers' route, enter the admin credentials, and you’ll see the following: 
 
 ![image alt text](image_3.png)
 
