@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get '/printers' => 'printer#index', as: :printer
   post 'printers'=> 'printer#update'
   get '' => 'printer#index'
+  get '/bla'=>'stats#index'
   # get '/printers/new' => 'printer#new'
   # post 'printers/new' => 'printer#create'
 
