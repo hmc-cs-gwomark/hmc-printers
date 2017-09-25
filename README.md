@@ -12,6 +12,8 @@ Harvey Mudd Colleges has 5 printers that connect to student printing, but often 
 Our MVP includes a webpage that displays a basic message about the each printer's status on campus, as well as the necessary forms so that somebody can change the printer status if necessary.
 
 ## Functionality
+
+### Reports
 The main functionality of Printer Statuses is the user’s ability to report whether a certain printer is working or not and why the printer is not working. Let’s walk through a simple process of creating a report: 
 
 First venture to the '/printers' route. Find which printer you want, in this case we’ll report about the LAC Printer, then click on it’s corresponding report button as shown in Fig.1
@@ -30,9 +32,12 @@ If the printer is working we simply hit submit, otherwise click the dropdown and
 
 After clicking submit, the page should refresh and you should see your new report under the printer you just submitted the form for.  
 
+### History
 Users can also check out previous statuses for all printers at the '/history' route. The status page looks like this:
 ![image alt text](image_5.png)
 
+
+### Admin 
 Our website also contains some admin functionality. In particular admins can add new printers to add reports for. Admins can also delete printers along with all their statuses with the click of a button. Simply venture to the '/admin/printers' route, enter the admin credentials, and you’ll see the following: 
 
 ![image alt text](image_3.png)
