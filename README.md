@@ -30,7 +30,8 @@ If the printer is working we simply hit submit, otherwise click the dropdown and
 
 After clicking submit, the page should refresh and you should see your new report under the printer you just submitted the form for.  
 
-Users can also check out previous statuses for all printers at the '/history' route. 
+Users can also check out previous statuses for all printers at the '/history' route. The status page looks like this:
+![image alt text](image_5.png)
 
 Our website also contains some admin functionality. In particular admins can add new printers to add reports for. Admins can also delete printers along with all their statuses with the click of a button. Simply venture to the '/admin/printers' route, enter the admin credentials, and you’ll see the following: 
 
